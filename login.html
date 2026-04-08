@@ -9,14 +9,14 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">login</h1>
-        <form>
+        <form id="loginForm">
             <div class="mb-3">
-                <label for="inputEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" required>
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" required>
             </div>
             <div class="mb-3">
-                <label for="inputPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <a href="#" class="small">Forgot password?</a>
@@ -29,5 +29,6 @@
         </form>
     </div>
     <script src="/bootstrap.bundle.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
