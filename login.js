@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('users.json');
+      const response = await fetch('/users.json');
       if (!response.ok) throw new Error('Failed to load users data');
       const users = await response.json();
       const user = users.find(u => u.username === username && u.password === password);
