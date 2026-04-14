@@ -5,13 +5,16 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 const app = express();
-const PORT = 3000;
+const PORT = 80; // Use port 80 for web
 
+// Set static directory to Apache's web root for this project
+const STATIC_DIR = '/var/www/html/csit-314-groupwork';
 app.use(bodyParser.json());
-app.use(express.static(__dirname)); // Serve static files (HTML, JS, CSS)
+app.use(express.static(STATIC_DIR)); // Serve static files (HTML, JS, CSS)
 
-const USERS_FILE = path.join(__dirname, 'users.json');
+const USERS_FILE = path.join(STATIC_DIR, 'users.json');
 
 // Helper to read users.json
 function readUsers() {
