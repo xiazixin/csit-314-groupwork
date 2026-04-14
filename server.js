@@ -7,7 +7,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 80; // Use port 80 for web
+const PORT = 3000; // Use port 3000 for development
 
 // Import and use the autoindex route
 const autoindexRouter = require('./autoindex');
