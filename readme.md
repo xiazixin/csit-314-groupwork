@@ -9,6 +9,7 @@ Sorry guys, I know this sucks, and pretty badly. I tried my best at reducing the
 #requirement: (in linux, debian trixie environment)
 Node.JS (required) 
 ```sudo apt update```
+
 ```sudo apt install nodejs npm -y```
 
 #dependency
@@ -18,4 +19,5 @@ Then setup the server with apache2/nginx like how you aways do it. with proxypas
 
 pm2 (optional)
 ```sudo npm install -g pm2```
+
 ```pm2 start server.js```
