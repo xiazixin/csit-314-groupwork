@@ -4,6 +4,32 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('createUserForm');
     const successMessage = document.getElementById('successMessage');
+    const userList = document.getElementById('userList');
+
+    // Fetch and display users
+    function loadUsers() {
+        fetch('/api/users')
+            .then(response => response.json())
+            .then(users => {
+                userList.innerHTML = '';
+                if (Array.isArray(users) && users.length > 0) {
+                    users.forEach(user => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item';
+                        li.textContent = `${user.name} (${user.role}) - ${user.contact}`;
+                        userList.appendChild(li);
+                    });
+                } else {
+                    userList.innerHTML = '<li class="list-group-item">No users found.</li>';
+                }
+            })
+            .catch(() => {
+                userList.innerHTML = '<li class="list-group-item text-danger">Failed to load users.</li>';
+            });
+    }
+
+    // Initial load
+    loadUsers();
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -30,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 successMessage.classList.remove('d-none');
                 form.reset();
+                loadUsers(); // Refresh user list
             } else {
                 alert(data.error || 'Failed to create user.');
             }

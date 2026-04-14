@@ -39,6 +39,13 @@ function writeUsers(users) {
     fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 }
 
+
+// API endpoint to get all users
+app.get('/api/users', (req, res) => {
+    const users = readUsers();
+    res.json(users);
+});
+
 // API endpoint to create user
 app.post('/api/users', (req, res) => {
     const { name, role, contact } = req.body;
