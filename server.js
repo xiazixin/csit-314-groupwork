@@ -14,7 +14,10 @@ const autoindexRouter = require('./autoindex');
 app.use(autoindexRouter);
 
 // Set static directory to Apache's web root for this project
-const STATIC_DIR = '/var/www/html/csit-314-groupwork';
+const STATIC_DIR = '/var/www/html/csit-314-groupwork'; // Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
+// Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
+// Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
+// Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location important things must repeated 3 times.
 app.use(bodyParser.json());
 app.use(express.static(STATIC_DIR)); // Serve static files (HTML, JS, CSS)
 
