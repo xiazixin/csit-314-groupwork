@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User Profile</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Create User Profile</h2>
+        <form id="createUserForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <select class="form-select" id="role" name="role" required>
+                    <option value="">Select Role</option>
+                    <option value="FR">Fundraiser</option>
+                    <option value="Donor">Donor</option>
+                    <option value="PM">Project Manager</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="contact" class="form-label">Contact Information</label>
+                <input type="text" class="form-control" id="contact" name="contact" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="successMessage" class="alert alert-success mt-3 d-none" role="alert">
+            User profile created successfully!
+        </div>
+    </div>
+    <script>
+        document.getElementById('createUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you would normally send data to the server or save it
+            document.getElementById('successMessage').classList.remove('d-none');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
