@@ -9,6 +9,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 80; // Use port 80 for web
 
+// Import and use the autoindex route
+const autoindexRouter = require('./autoindex');
+app.use(autoindexRouter);
+
 // Set static directory to Apache's web root for this project
 const STATIC_DIR = '/var/www/html/csit-314-groupwork';
 app.use(bodyParser.json());
