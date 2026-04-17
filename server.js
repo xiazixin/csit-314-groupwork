@@ -9,9 +9,14 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000; // Use port 3000 for development
 
+
 // Import and use the autoindex route
 const autoindexRouter = require('./autoindex');
 app.use(autoindexRouter);
+
+// Import and use the createuserRouter
+const createuserRouter = require('./createuserRouter');
+app.use(createuserRouter);
 
 // Set static directory to Apache's web root for this project
 const STATIC_DIR = '/var/www/html/csit-314-groupwork'; // Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
@@ -40,24 +45,7 @@ function writeUsers(users) {
 }
 
 
-// API endpoint to get all users
-app.get('/api/users', (req, res) => {
-    const users = readUsers();
-    res.json(users);
-});
 
-// API endpoint to create user
-app.post('/api/users', (req, res) => {
-    const { name, role, contact } = req.body;
-    if (!name || !role || !contact) {
-        return res.status(400).json({ error: 'All fields required.' });
-    }
-    const users = readUsers();
-    const newUser = { id: Date.now(), name, role, contact };
-    users.push(newUser);
-    writeUsers(users);
-    res.json({ success: true, user: newUser });
-});
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
