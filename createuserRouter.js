@@ -6,8 +6,8 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 
-// Path to users.json (adjust as needed)
-const USERS_FILE = path.join(__dirname, 'users.json');
+// Path to userprofile.json (adjust as needed)
+const USERS_FILE = path.join(__dirname, 'userprofile.json');
 
 // Helper to read users.json
 function readUsers() {

@@ -26,7 +26,7 @@ const STATIC_DIR = '/var/www/html/csit-314-groupwork'; // Adjust if your setup d
 app.use(bodyParser.json());
 app.use(express.static(STATIC_DIR)); // Serve static files (HTML, JS, CSS)
 
-const USERS_FILE = path.join(STATIC_DIR, 'users.json');
+const USERS_FILE = path.join(STATIC_DIR, 'userprofile.json');
 
 // Helper to read users.json
 function readUsers() {
