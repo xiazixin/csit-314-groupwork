@@ -15,11 +15,19 @@ Node.JS (required)
 
 # dependency
 
-```npm install express body-parser```
+```npm install express```
+
+```npm install body-parser```
+
+```npm install path```
+
+```npm install fs```
 
 Then setup the server with apache2/nginx like how you aways do it. with proxypass from port 3000 so that node.js can listen to it.
 
-pm2 (optional)
+# (optional)
+
+pm2 
 
 ```sudo npm install -g pm2```
 
