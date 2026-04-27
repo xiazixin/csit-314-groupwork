@@ -6,6 +6,21 @@ Since the links and database need server environment.
 
 Sorry guys, I know this sucks, and pretty badly. I tried my best at reducing the complexity of the stuff, I guess things do go bloded some how. 
 
+# quick install (recommanded method)
+
+```git clone https://github.com/xiazixin/csit-314-groupwork.git /var/www/html/csit-314-groupwork``` or ```git pull https://github.com/xiazixin/csit-314-groupwork.git /var/www/html/csit-314-groupwork``` or just simply download the file and save to /var/www/html/csit-314-groupwork
+
+```. buildenv.sh``` to auto update the file to latest version and build the required environment. 
+
+# Start server
+```pm2 start server.js``` start server
+
+```pm2 ls``` check server is running 
+
+```pm2 restart server.js``` restart
+
+```pm2 delete server.js``` delete
+
 # requirement: (in linux, debian trixie environment)
 Node.JS (required) 
 
