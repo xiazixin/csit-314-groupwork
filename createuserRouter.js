@@ -82,7 +82,8 @@ router.get('/createuser', (req, res) => {
                             users.forEach(user => {
                                 const li = document.createElement('li');
                                 li.className = 'list-group-item';
-                                li.textContent = `${user.name} (${user.role}) - ${user.contact}`;
+                                li.textContent = user.name + ' (' + user.role + ') - ' + user.contact;
+                                <!-- Append user info to the list (place holder!!!!!)-->
                                 userList.appendChild(li);
                             });
                         } else {
