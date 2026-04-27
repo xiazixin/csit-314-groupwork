@@ -18,6 +18,10 @@ app.use(autoindexRouter);
 const createuserRouter = require('./createuserRouter');
 app.use(createuserRouter);
 
+// Import and use the test router
+const testRouter = require('./test');
+app.use(testRouter);
+
 // Set static directory to Apache's web root for this project
 const STATIC_DIR = '/var/www/html/csit-314-groupwork'; // Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
 // Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
