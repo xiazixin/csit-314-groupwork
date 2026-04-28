@@ -9,7 +9,7 @@ else
 fi
 
 # Set ownership and permissions
-sudo chown -R www-data:www-data /var/www/html/csit-314-groupwork
+sudo chown -R xiaz /var/www/html/csit-314-groupwork
 sudo chmod -R 755 /var/www/html/csit-314-groupwork
 
 # Update package list
