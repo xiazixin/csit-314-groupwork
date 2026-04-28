@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #update the repository
-cd /var/www/html/csit-314-groupwork
 pm2 stop server.js
 pm2 delete server.js
 exec bash buildenv.sh
