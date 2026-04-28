@@ -10,6 +10,8 @@ const app = express();
 const PORT = 3000; // Use port 3000 for development
 
 
+app.use(bodyParser.json());
+
 // Import and use the autoindex route
 const autoindexRouter = require('./autoindex');
 app.use(autoindexRouter);
@@ -27,7 +29,6 @@ const STATIC_DIR = '/var/www/html/csit-314-groupwork'; // Adjust if your setup d
 // Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
 // Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location
 // Adjust if your setup differs !!!!!!!!very important to set this correctly to serve files from the right location important things must repeated 3 times.
-app.use(bodyParser.json());
 app.use(express.static(STATIC_DIR)); // Serve static files (HTML, JS, CSS)
 
 const USERS_FILE = path.join(STATIC_DIR, 'userprofile.json');
