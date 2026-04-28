@@ -10,7 +10,7 @@ fi
 
 # Set ownership and permissions
 sudo chown -R xiaz /var/www/html/csit-314-groupwork
-sudo chmod -R 755 /var/www/html/csit-314-groupwork
+sudo chmod -R 777 /var/www/html/csit-314-groupwork
 
 # Update package list
 sudo apt update
