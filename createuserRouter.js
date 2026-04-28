@@ -12,8 +12,8 @@ const USERS_FILE = path.join(__dirname, 'userprofile.json');
 // Helper to read users.json
 function readUsers() {
     if (!fs.existsSync(USERS_FILE)) return [];
-    const data = fs.readFileSync(USERS_FILE, 'utf8');
     try {
+        const data = fs.readFileSync(USERS_FILE, 'utf8');
         return JSON.parse(data);
     } catch {
         return [];
@@ -83,7 +83,6 @@ router.get('/createuser', (req, res) => {
                                 const li = document.createElement('li');
                                 li.className = 'list-group-item';
                                 li.textContent = user.name + ' (' + user.role + ') - ' + user.contact;
-                                <!-- Append user info to the list (place holder!!!!!)-->
                                 userList.appendChild(li);
                             });
                         } else {
@@ -144,15 +143,19 @@ router.get('/createuser/api/users', (req, res) => {
 
 // API endpoint to create user (scoped to /createuser/api/users)
 router.post('/createuser/api/users', (req, res) => {
-    const { name, role, contact } = req.body;
-    if (!name || !role || !contact) {
-        return res.status(400).json({ error: 'All fields required.' });
+    try {
+        const { name, role, contact } = req.body || {};
+        if (!name || !role || !contact) {
+            return res.status(400).json({ error: 'All fields required.' });
+        }
+        const users = readUsers();
+        const newUser = { id: Date.now(), name, role, contact };
+        users.push(newUser);
+        writeUsers(users);
+        res.json({ success: true, user: newUser });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to save user.' });
     }
-    const users = readUsers();
-    const newUser = { id: Date.now(), name, role, contact };
-    users.push(newUser);
-    writeUsers(users);
-    res.json({ success: true, user: newUser });
 });
 
 module.exports = router;
