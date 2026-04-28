@@ -5,6 +5,8 @@ if [ ! -d "/var/www/html/csit-314-groupwork/.git" ]; then
 	sudo git clone https://github.com/xiazixin/csit-314-groupwork.git /var/www/html/csit-314-groupwork
 else
 	cd /var/www/html/csit-314-groupwork
+	#stash existing change
+	sudo git stash 
 	sudo git pull https://github.com/xiazixin/csit-314-groupwork.git
 fi
 
