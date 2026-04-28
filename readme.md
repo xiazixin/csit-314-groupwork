@@ -47,3 +47,12 @@ pm2
 ```sudo npm install -g pm2```
 
 ```pm2 start server.js```
+
+# common issues
+
+When there are error 500 on write. Make sure you have permition and ownership with chown and chmod. 
+
+```
+sudo chown -R www-data:www-data /var/www/html/csit-314-groupwork
+sudo chmod -R 755 /var/www/html/csit-314-groupwork
+```
