@@ -50,6 +50,8 @@ pm2
 
 # common issues
 
+### read or write permition
+
 When there are error 500 on write. Make sure you have permition and ownership with chown and chmod. 
 
 ```
@@ -58,7 +60,7 @@ sudo chmod -R 755 /var/www/html/csit-314-groupwork
 ```
 
 
-
+### suspicious author or files
 
 Some time the buildenv.sh isn't updating, and the error message will overran by other commands of the script. 
 if it shows 
