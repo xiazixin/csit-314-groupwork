@@ -15,7 +15,8 @@ function readUsers() {
     try {
         const data = fs.readFileSync(USERS_FILE, 'utf8');
         return JSON.parse(data);
-    } catch {
+    } catch (err) {
+        console.error('Failed to parse userprofile.json:', err);
         return [];
     }
 }
@@ -149,12 +150,16 @@ router.post('/createuser/api/users', (req, res) => {
             return res.status(400).json({ error: 'All fields required.' });
         }
         const users = readUsers();
+        if (!Array.isArray(users)) {
+            throw new Error('User data must be a JSON array.');
+        }
         const newUser = { id: Date.now(), name, role, contact };
         users.push(newUser);
         writeUsers(users);
         res.json({ success: true, user: newUser });
     } catch (err) {
-        res.status(500).json({ error: 'Failed to save user.' });
+        console.error('Failed to create user:', err);
+        res.status(500).json({ error: 'Failed to save user.', detail: err.message });
     }
 });
 
