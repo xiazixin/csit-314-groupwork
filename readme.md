@@ -56,3 +56,8 @@ When there are error 500 on write. Make sure you have permition and ownership wi
 sudo chown -R www-data:www-data /var/www/html/csit-314-groupwork
 sudo chmod -R 755 /var/www/html/csit-314-groupwork
 ```
+
+
+Some time the buildenv.sh isn't updating, and the error message will overran by other commands of the script. 
+if it shows git config --global --add safe.directory
+the easiest method is just delete the whole thing and just clone again, there should be a better methods but why borders.
