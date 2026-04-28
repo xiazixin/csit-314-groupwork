@@ -8,6 +8,10 @@ else
 	sudo git pull https://github.com/xiazixin/csit-314-groupwork.git
 fi
 
+# Set ownership and permissions
+sudo chown -R www-data:www-data /var/www/html/csit-314-groupwork
+sudo chmod -R 755 /var/www/html/csit-314-groupwork
+
 # Update package list
 sudo apt update
 
